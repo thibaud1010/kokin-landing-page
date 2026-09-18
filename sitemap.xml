@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap con las cinco variantes de idioma. Cada <url> declara sus
+     alternativas hreflang (incluida x-default) para que el buscador entienda
+     que son la misma página en distintas lenguas. La app (/app) NO se lista:
+     va con noindex y bloqueada en robots.txt. Ajusta el dominio si no es
+     kokin.app y actualiza <lastmod> en cada despliegue. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://kokin.app/es/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/"/>
+  </url>
+
+  <url>
+    <loc>https://kokin.app/en/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/"/>
+  </url>
+
+  <url>
+    <loc>https://kokin.app/de/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/"/>
+  </url>
+
+  <url>
+    <loc>https://kokin.app/nl/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/"/>
+  </url>
+
+  <url>
+    <loc>https://kokin.app/fr/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/"/>
+  </url>
+
+  <url>
+    <loc>https://kokin.app/es/herramientas/medidor-estiramiento/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+  </url>
+  <url>
+    <loc>https://kokin.app/en/herramientas/medidor-estiramiento/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+  </url>
+  <url>
+    <loc>https://kokin.app/de/herramientas/medidor-estiramiento/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+  </url>
+  <url>
+    <loc>https://kokin.app/nl/herramientas/medidor-estiramiento/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+  </url>
+  <url>
+    <loc>https://kokin.app/fr/herramientas/medidor-estiramiento/</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kokin.app/en/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://kokin.app/de/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://kokin.app/nl/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kokin.app/fr/herramientas/medidor-estiramiento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kokin.app/es/herramientas/medidor-estiramiento/"/>
+  </url>
+
+</urlset>

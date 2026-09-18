@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Kokin — patrones de costura a tu medida">
+  <rect width="1200" height="630" fill="#f3eee4"/>
+  <g stroke="#9a7b3c" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="90" x2="1200" y2="90"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+  </g>
+  <g fill="none" stroke="#9a7b3c" stroke-width="3" stroke-linejoin="round">
+    <path d="M780 200 Q880 165 980 200 L1005 290 Q900 260 795 290 Z"/>
+    <path d="M795 290 Q700 500 690 620 Q900 660 1110 620 Q1100 500 1005 290"/>
+  </g>
+  <text x="90" y="300" font-family="Georgia, serif" font-size="96" fill="#2f2b24">Simplemente</text>
+  <text x="90" y="400" font-family="Georgia, serif" font-size="96" font-style="italic" fill="#6f571f">a tu medida.</text>
+  <text x="90" y="70" font-family="'IBM Plex Mono', monospace" font-size="26" letter-spacing="6" fill="#6f571f">KOKIN</text>
+  <text x="90" y="585" font-family="'IBM Plex Mono', monospace" font-size="22" letter-spacing="2" fill="#5a5247">PATRONES DE COSTURA · VESTIDO ARIA · GRATIS</text>
+</svg>

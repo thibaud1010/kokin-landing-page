@@ -1,0 +1,863 @@
+<!doctype html>
+<!-- ============================================================================
+     KOKIN · Landing · ES (español) — IDIOMA DE REFERENCIA, TEXTO DEFINITIVO
+     Los otros cuatro idiomas (/en/ /de/ /nl/ /fr/) replican esta estructura;
+     su copy queda pendiente de traducción con hablantes nativas que cosen.
+     Regenerar con:  node scripts/gen-locales.mjs
+     Dominio de ejemplo: https://kokin.app  (ajústalo en meta/hreflang/sitemap).
+
+     v2 «editorial»: la página se lee como un lookbook de revista. Vídeo a
+     sangre, displays en condensada ultra-negra, numeración de sección en rojo
+     y raíles horizontales. La paleta es la de PALETA.md sin tocar.
+     Decisiones comentadas al inicio de cada sección.
+     ========================================================================= -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16150f">
+
+  <!-- Marca "hay JS" ANTES de pintar: sólo con esta clase el CSS oculta algo
+       para revelarlo al scroll. Sin JS, nada queda escondido. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- SEO base. Título concreto: es un GENERADOR de patrones a medida, pensado
+       para telas que estiran. Sin nombre de prenda; la primera es KS1. -->
+  <title>Kokïn — Generador de patrones de costura a tu medida, gratis</title>
+  <meta name="description" content="Kokïn genera tu patrón de costura desde cero con tus medidas y tu tela, pensado para telas que estiran (licra, punto). Listo para imprimir en A4 o DXF, con sus instrucciones de costura. Gratis.">
+  <link rel="canonical" href="https://kokin.app/es/">
+
+  <!-- hreflang recíproco a los cinco idiomas + x-default (apunta al español,
+       la lengua de lanzamiento). Idéntico en las cinco páginas. -->
+  <link rel="alternate" hreflang="es" href="https://kokin.app/es/">
+  <link rel="alternate" hreflang="en" href="https://kokin.app/en/">
+  <link rel="alternate" hreflang="de" href="https://kokin.app/de/">
+  <link rel="alternate" hreflang="nl" href="https://kokin.app/nl/">
+  <link rel="alternate" hreflang="fr" href="https://kokin.app/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://kokin.app/es/">
+
+  <!-- Open Graph / Twitter. El 70 % del tráfico llega de TikTok: la tarjeta
+       al compartir importa. PENDIENTE: sustituir og-cover.svg por un .jpg/.png
+       ≥1200×630 (muchos scrapers no rasterizan SVG). -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kokïn">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Simplemente, a tu medida — generador de patrones Kokïn">
+  <meta property="og:description" content="Genera tu patrón de costura desde cero con tus medidas y tu tela. Para telas que estiran. Listo para A4 o DXF, con instrucciones. Gratis.">
+  <meta property="og:url" content="https://kokin.app/es/">
+  <meta property="og:image" content="https://kokin.app/assets/img/og-cover.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Kokïn — generador de patrones de costura a tu medida.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simplemente, a tu medida — Kokïn">
+  <meta name="twitter:description" content="Generador de patrones de costura a tu medida, para telas que estiran. Gratis.">
+  <meta name="twitter:image" content="https://kokin.app/assets/img/og-cover.svg">
+
+  <!-- El LCP es el póster del vídeo del héroe: se pinta mientras el MP4 aún se
+       está descargando, así que se precarga él, no el vídeo. -->
+  <link rel="preload" as="image" href="/assets/img/look/poster-ks1-b.jpg" fetchpriority="high">
+
+  <!-- Fuentes desde Google Fonts (no ponen cookies):
+       Anton         → los displays enormes (condensada ultra-negra).
+       Archivo       → variable en peso y ANCHO: subtítulos, botones, navegación.
+       Inter         → texto corrido.
+       JetBrains Mono→ etiquetas, cifras, (paréntesis) y [corchetes].
+       Para cero peticiones externas en runtime, autoaloja los .woff2. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400..800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+  <!-- Iconos: SVG para navegadores modernos y PNG de respaldo. El de Apple va
+       cuadrado porque iOS recorta las esquinas por su cuenta. -->
+  <link rel="icon" href="/assets/img/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon-180.png" sizes="180x180">
+
+  <link rel="stylesheet" href="/assets/css/kokin.css">
+  <script src="/assets/js/kokin.js" defer></script>
+  <script src="/assets/js/anima.js" defer></script>
+
+  <!-- Datos estructurados: WebSite + FAQ. Estáticos, ayudan a la indexación
+       (rich results de FAQ) sin cargar nada. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kokïn",
+    "url": "https://kokin.app/es/",
+    "inLanguage": "es",
+    "description": "Patrones de costura trazados a medida, listos para imprimir en A4."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿Necesito una impresora especial?","acceptedAnswer":{"@type":"Answer","text":"No. Cualquier impresora A4 de casa. El patrón viene paginado para hojas A4 normales."}},
+      {"@type":"Question","name":"¿Cómo sé que sale a escala?","acceptedAnswer":{"@type":"Answer","text":"Cada patrón trae un cuadrado de calibración. Lo mides con una regla antes de recortar: si mide lo que dice, imprimes al 100 %."}},
+      {"@type":"Question","name":"¿El patrón incluye los márgenes de costura?","acceptedAnswer":{"@type":"Answer","text":"Sí. Vienen incluidos y marcados, y sabes cuánto mide cada uno. Si prefieres trazar sin ellos, puedes desactivarlos antes de descargar."}},
+      {"@type":"Question","name":"¿Qué tallas cubre?","acceptedAnswer":{"@type":"Answer","text":"No hay tallas. Van tus medidas, sean las que sean."}},
+      {"@type":"Question","name":"¿Sirve para coser para otras personas?","acceptedAnswer":{"@type":"Answer","text":"Sí. Guardas un perfil de medidas por persona y trazas para cualquiera de ellas."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- El logotipo va UNA vez como <symbol> y se referencia con <use> desde la
+       cabecera y el pie. Así hereda `currentColor` (la cabecera cambia de
+       claro a oscuro al hacer scroll) sin repetir 7 KB de trazados. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="kokin-mark" viewBox="0 0 184 52">
+      <g transform="translate(-108,-40)"><path d="M122.670 74.773L121.244 71.766L140.402 53.011Q141.549 51.895 141.906 51.027Q142.262 50.159 141.921 49.555Q141.581 48.950 140.619 48.609L139.038 48.206Q138.325 47.989 138.031 47.617Q137.736 47.245 137.736 46.687Q137.736 46.005 138.201 45.633Q138.666 45.261 139.627 45.261L151.748 45.261Q152.740 45.261 153.206 45.633Q153.671 46.005 153.671 46.687Q153.671 47.276 153.283 47.602Q152.895 47.927 151.748 48.330Q151.252 48.454 150.756 48.702Q150.260 48.950 149.563 49.462Q148.865 49.973 147.765 50.950Q146.664 51.926 144.928 53.507L122.670 74.773M139.938 83.143L128.994 65.721L136.403 59.614L151.221 83.205Q151.904 84.290 152.601 84.786Q153.298 85.282 154.197 85.499Q155.190 85.809 155.546 86.243Q155.902 86.677 155.902 87.235Q155.902 87.886 155.422 88.273Q154.941 88.661 153.950 88.661L138.976 88.661Q137.984 88.661 137.519 88.273Q137.054 87.886 137.054 87.204Q137.054 86.646 137.364 86.258Q137.674 85.871 138.232 85.716L139.844 85.406Q140.495 85.220 140.526 84.693Q140.558 84.166 139.938 83.143M124.561 50.438L124.561 83.484Q124.561 84.166 124.902 84.600Q125.243 85.034 125.925 85.251L127.506 85.654Q128.281 85.964 128.545 86.305Q128.808 86.646 128.808 87.235Q128.808 87.886 128.359 88.273Q127.909 88.661 126.948 88.661L112.223 88.661Q111.262 88.661 110.797 88.273Q110.332 87.886 110.332 87.235Q110.332 86.057 111.634 85.654L113.401 85.251Q114.176 85.034 114.564 84.600Q114.951 84.166 114.951 83.484L114.951 50.438Q114.951 49.756 114.564 49.322Q114.176 48.888 113.401 48.671L111.634 48.268Q110.332 47.865 110.332 46.687Q110.332 46.005 110.797 45.633Q111.262 45.261 112.223 45.261L127.320 45.261Q128.281 45.261 128.731 45.633Q129.180 46.005 129.180 46.687Q129.180 47.865 127.878 48.268L126.111 48.671Q125.367 48.888 124.964 49.322Q124.561 49.756 124.561 50.438M174.533 58.591Q179.338 58.591 182.965 60.544Q186.592 62.497 188.623 65.984Q190.653 69.472 190.653 74.091Q190.653 78.462 188.561 81.934Q186.468 85.406 182.779 87.421Q179.090 89.436 174.223 89.436Q169.449 89.436 165.838 87.452Q162.226 85.468 160.180 81.981Q158.134 78.493 158.134 73.936Q158.134 69.503 160.227 66.047Q162.319 62.590 166.008 60.591Q169.697 58.591 174.533 58.591M176.734 86.181Q178.842 85.871 180.129 84.243Q181.415 82.616 181.772 79.764Q182.128 76.912 181.384 72.913Q180.671 68.914 179.307 66.326Q177.943 63.737 176.083 62.590Q174.223 61.443 172.053 61.815Q169.914 62.156 168.628 63.784Q167.341 65.411 167.016 68.248Q166.690 71.084 167.403 75.114Q168.116 79.082 169.480 81.671Q170.844 84.259 172.704 85.406Q174.564 86.553 176.734 86.181M208.943 88.661L196.884 88.661Q195.985 88.661 195.644 88.320Q195.303 87.979 195.303 87.390Q195.303 86.925 195.567 86.600Q195.830 86.274 196.450 86.057L197.659 85.747Q198.217 85.530 198.481 85.096Q198.744 84.662 198.744 83.701L198.744 49.756Q198.744 48.981 198.512 48.640Q198.279 48.299 197.752 48.206L196.109 48.082Q195.551 47.927 195.303 47.648Q195.055 47.369 195.055 46.935Q195.055 46.439 195.350 46.129Q195.644 45.819 196.481 45.509L202.247 43.401Q203.425 42.967 204.138 42.766Q204.851 42.564 205.502 42.564Q206.463 42.564 206.959 43.107Q207.455 43.649 207.455 44.548L207.455 83.701Q207.455 84.662 207.734 85.096Q208.013 85.530 208.571 85.747L209.687 86.057Q210.679 86.460 210.679 87.297Q210.679 88.661 208.943 88.661M205.812 77.842L204.851 75.207L217.561 64.853Q218.646 63.985 218.538 63.225Q218.429 62.466 217.220 62.094L216.135 61.815Q215.546 61.629 215.329 61.350Q215.112 61.071 215.112 60.606Q215.112 59.986 215.546 59.645Q215.980 59.304 216.755 59.304L227.605 59.304Q228.349 59.304 228.799 59.645Q229.248 59.986 229.248 60.544Q229.248 61.133 228.876 61.505Q228.504 61.877 227.326 62.156Q225.745 62.497 224.521 63.179Q223.296 63.861 221.436 65.349L205.812 77.842M209.780 72.913L215.608 67.798L226.644 83.732Q227.388 84.755 227.946 85.174Q228.504 85.592 229.527 85.933Q230.178 86.243 230.504 86.615Q230.829 86.987 230.829 87.452Q230.829 88.010 230.380 88.335Q229.930 88.661 229.186 88.661L216.538 88.661Q215.856 88.661 215.453 88.320Q215.050 87.979 215.050 87.390Q215.050 86.987 215.267 86.708Q215.484 86.429 215.980 86.243L216.972 85.964Q217.840 85.716 217.902 85.204Q217.964 84.693 217.096 83.484L209.780 72.913M245.554 60.265L245.554 83.701Q245.554 84.631 245.849 85.081Q246.143 85.530 246.670 85.747L247.817 86.057Q248.344 86.243 248.639 86.569Q248.933 86.894 248.933 87.390Q248.933 87.979 248.499 88.320Q248.065 88.661 247.290 88.661L235.169 88.661Q234.425 88.661 233.991 88.320Q233.557 87.979 233.557 87.390Q233.557 86.925 233.836 86.600Q234.115 86.274 234.642 86.057L235.851 85.747Q236.378 85.499 236.657 85.081Q236.936 84.662 236.936 83.701L236.936 65.814Q236.936 65.008 236.688 64.683Q236.440 64.357 235.944 64.233L234.301 64.140Q233.774 63.985 233.511 63.722Q233.247 63.458 233.247 63.024Q233.247 62.528 233.588 62.203Q233.929 61.877 234.673 61.598L241.214 59.397Q242.237 59.056 242.842 58.916Q243.446 58.777 244.066 58.777Q244.748 58.777 245.151 59.180Q245.554 59.583 245.554 60.265M235.393 56.018Q233.805 56.018 232.851 54.871Q231.896 53.724 231.896 51.864Q231.896 49.942 232.851 48.779Q233.805 47.617 235.393 47.617Q237.005 47.617 237.947 48.779Q238.889 49.942 238.889 51.864Q238.889 53.724 237.947 54.871Q237.005 56.018 235.393 56.018M245.486 56.018Q243.899 56.018 242.932 54.871Q241.965 53.724 241.965 51.864Q241.965 49.942 242.932 48.779Q243.899 47.617 245.486 47.617Q247.148 47.617 248.090 48.779Q249.032 49.942 249.032 51.864Q249.032 53.724 248.090 54.871Q247.148 56.018 245.486 56.018M265.178 60.699L265.178 83.701Q265.178 84.662 265.457 85.096Q265.736 85.530 266.293 85.747L267.409 86.057Q268.401 86.460 268.401 87.297Q268.401 88.661 266.665 88.661L254.699 88.661Q253.831 88.661 253.428 88.320Q253.025 87.979 253.025 87.390Q253.025 86.925 253.289 86.600Q253.552 86.274 254.141 86.057L255.381 85.747Q255.939 85.530 256.203 85.096Q256.466 84.662 256.466 83.701L256.466 65.938Q256.466 65.132 256.234 64.791Q256.001 64.450 255.474 64.357L253.831 64.233Q253.273 64.109 253.025 63.830Q252.777 63.551 252.777 63.117Q252.777 62.590 253.072 62.280Q253.366 61.970 254.203 61.660L259.969 59.552Q261.147 59.118 261.861 58.932Q262.573 58.746 263.224 58.746Q264.185 58.746 264.681 59.288Q265.178 59.831 265.178 60.699M265.487 66.527L264.248 67.612L262.821 66.155L264.030 65.070Q267.936 61.567 270.726 60.079Q273.517 58.591 276.027 58.591Q279.840 58.591 281.948 61.148Q284.056 63.706 284.522 67.953L286.257 83.608Q286.351 84.631 286.599 85.096Q286.846 85.561 287.435 85.747L288.520 86.057Q289.109 86.274 289.388 86.600Q289.667 86.925 289.667 87.390Q289.667 87.979 289.264 88.320Q288.861 88.661 287.962 88.661L275.873 88.661Q274.167 88.661 274.167 87.297Q274.167 86.460 275.128 86.057L276.306 85.747Q276.895 85.530 277.221 85.065Q277.546 84.600 277.422 83.608L275.810 69.224Q275.500 66.527 274.431 65.163Q273.361 63.799 271.284 63.799Q269.982 63.799 268.541 64.481Q267.099 65.163 265.487 66.527" fill="currentColor"/></g>
+    </symbol>
+  </svg>
+
+  <!-- ========================================================================
+       CABECERA — fija y TRANSPARENTE sobre el héroe (el vídeo manda), se
+       vuelve papel opaco en cuanto se sale de él, y se aparta al bajar. Los
+       estados los pone anima.js; sin JS se queda siempre visible y legible
+       porque el héroe lleva un velo oscuro fijo debajo del texto.
+       En móvil se cae la navegación central: quedan logo, idioma y CTA.
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/es/" aria-label="Kokïn — inicio">
+        <svg viewBox="0 0 184 52" role="img" aria-label="Kokïn"><use href="#kokin-mark"/></svg>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <div class="nav-links">
+          <a class="nav-link" href="#generador">El generador</a>
+          <a class="nav-link" href="#como-funciona">Cómo funciona</a>
+          <a class="nav-link" href="#ks1">KS1</a>
+          <a class="nav-link" href="#en-camino">En camino</a>
+        </div>
+
+        <!-- Herramientas e idioma: <details> nativos. Sin JS se abren igual y
+             son navegables con teclado; anima.js sólo cierra el otro. -->
+        <details class="tools">
+          <summary>Herramientas</summary>
+          <ul>
+            <li><a href="/es/herramientas/medidor-estiramiento/">Medidor de estiramiento</a></li>
+          </ul>
+        </details>
+
+        <details class="lang">
+          <summary aria-label="Cambiar idioma">ES</summary>
+          <ul>
+            <li><a href="/es/" hreflang="es" aria-current="true">Español</a></li>
+            <li><a href="/en/" hreflang="en">English</a></li>
+            <li><a href="/de/" hreflang="de">Deutsch</a></li>
+            <li><a href="/nl/" hreflang="nl">Nederlands</a></li>
+            <li><a href="/fr/" hreflang="fr">Français</a></li>
+          </ul>
+        </details>
+
+        <a class="btn btn--primary btn--sm header-cta" href="/app">Crear mi patrón</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ======================================================================
+         HÉROE
+         Vídeo real de KS1 a sangre y a pantalla completa; el texto se ancla a
+         las esquinas y el titular baja del todo para que la prenda respire.
+         El vídeo es mudo, en bucle y `playsinline` (requisito de iOS); su
+         póster es la primera foto, así que si el MP4 no llega —o se pide
+         calma— la composición se ve exactamente igual, congelada.
+         =================================================================== -->
+    <section class="hero">
+      <div class="hero__media">
+        <video data-io autoplay muted loop playsinline preload="metadata"
+               poster="/assets/img/look/poster-ks1-b.jpg"
+               aria-label="KS1 cosido en tela blanca calada, caminando a la sombra de un parque.">
+          <source src="/assets/video/ks1-b-web.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="wrap hero__grid">
+        <div class="hero__top">
+          <p class="paren meta">Generador de patrones</p>
+          <p class="paren meta">Para telas elásticas</p>
+        </div>
+
+        <div></div><!-- fila elástica: empuja el titular al fondo -->
+
+        <div class="hero__bottom">
+          <div>
+            <h1 class="d-mega" data-lines>
+              <span class="line">Simplemente,</span>
+              <span class="line">a tu medida<span class="hero__ref">KS1</span></span>
+            </h1>
+          </div>
+
+          <div data-reveal>
+            <!-- La misma promesa del héroe de siempre, ahora en condensada y
+                 con las dos ideas que importan marcadas en rojo. -->
+            <p class="hero__say">
+              A partir de <span class="hl">tus medidas</span> y de la elasticidad real de
+              <span class="hl">tu tela</span>, traza un patrón hecho solo para ti. Porque no hay
+              dos cuerpos iguales, ni dos telas que se comporten igual.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="/app">Crear mi patrón — gratis
+                <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span class="scroll-cue" aria-hidden="true"></span>
+    </section>
+
+    <!-- Marquesina: la ficha técnica en marcha, como el letrero de un atelier.
+         Decorativa (aria-hidden). El texto va DOS veces para que el bucle a
+         -50 % sea continuo; se pausa al pasar el ratón. -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Patrón en A4</span><span>Instrucciones de costura</span><span>Sin tallas: tus medidas</span><span>Archivo DXF</span><span>Gratis</span>
+        <span>Patrón en A4</span><span>Instrucciones de costura</span><span>Sin tallas: tus medidas</span><span>Archivo DXF</span><span>Gratis</span>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         01 · EL PROBLEMA — carrusel de scroll
+         El argumento va en cuatro tiempos y se pasa haciendo scroll: la caja
+         mide cuatro pantallas de alto y dentro hay un escenario `sticky` que
+         se queda quieto mientras se recorre. Cada frase entra por un lado
+         distinto (arriba, abajo, derecha, arriba) y sale continuando ese mismo
+         movimiento, así el ojo entiende que avanza.
+         Las cuatro frases están SIEMPRE en el HTML y en orden: un lector de
+         pantalla las lee seguidas, como el párrafo que eran. Sin JS —o si se
+         pide calma— no hay ni fijado ni desplazamiento: se apilan y se leen.
+         =================================================================== -->
+    <section class="section problema" id="problema">
+      <div class="slides" data-slides>
+        <div class="slides__stage">
+          <!-- El contorno REAL de KS1 (sacado del PDF del generador) como
+               textura de fondo: se recoloca y gira con cada frase. Decorativo. -->
+          <span class="slides__trazo" aria-hidden="true"></span>
+
+          <div class="wrap slides__grid">
+
+            <div class="slides__head">
+              <p class="label"><span class="n">01.</span> El problema</p>
+              <p class="meta slides__count"><b data-slides-n>01</b><i>/</i>04</p>
+            </div>
+
+            <div class="slides__view">
+              <article class="slide" data-from="arriba">
+                <h2 class="d-lg">Un patrón comercial está trazado para un cuerpo estándar <em>que no existe.</em></h2>
+              </article>
+              <!-- Las dos frases del medio van en CAJA BAJA y en el tipo de
+                   texto, no en la condensada de los displays: son las que hay
+                   que LEER, no las que hay que ver. Se parten en dos párrafos
+                   con aire entre ellos y sólo se resalta lo que carga el
+                   argumento. -->
+              <article class="slide" data-from="abajo">
+                <p class="prosa">Por eso <b>casi nunca queda bien a la primera</b> y toca ajustarlo. Y ahí empieza el problema.</p>
+                <p class="prosa">Hay que saber interpretar el patrón, detectar qué falla y modificarlo <b>sin deformar el diseño</b>.</p>
+              </article>
+              <article class="slide" data-from="derecha">
+                <p class="prosa">Eso es <em>patronaje</em>.</p>
+                <p class="prosa">Y no tienes por qué saber patronaje para <b>querer hacerte tu propia ropa</b>.</p>
+              </article>
+              <article class="slide" data-from="arriba">
+                <p class="d-lg">Coser debería ser la parte divertida. <em>No descifrar el patrón.</em></p>
+              </article>
+            </div>
+
+            <ol class="slides__ticks" aria-hidden="true">
+              <li></li><li></li><li></li><li></li>
+            </ol>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         02 · EL GENERADOR
+         La sección del PRODUCTO, y ahora se enseña sola: la grabación real de
+         la app ocupa la pantalla entera, igual que el vídeo del héroe, y
+         encima sólo va el titular. Nada de listas ni de capturas sueltas —
+         se ve la herramienta funcionando, que es el argumento.
+         El vídeo sale de una grabación de 32 s recortada a los 20 primeros:
+         a partir de ahí entra el panel de descargas del navegador.
+         Mudo, en bucle y `playsinline`; `preload=none` + IntersectionObserver,
+         así que no se descarga hasta que entra en pantalla. Su póster es un
+         fotograma, de modo que sin vídeo la composición se ve igual.
+         =================================================================== -->
+    <section class="pantalla" id="generador">
+      <div class="pantalla__media">
+        <video data-io muted loop playsinline preload="none"
+               poster="/assets/img/look/poster-generador.jpg"
+               aria-label="La app de Kokin trazando el patrón del vestido KS1: se eligen escote, falda y acomodo, y el patrón se redibuja al momento.">
+          <source src="/assets/video/generador-web.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- TODO el texto va al pie, junto. Arriba la grabación tiene su propia
+           cabecera (el logotipo de la app y el «Regresar»), y cualquier rótulo
+           puesto ahí se le encima y no hay quien lo lea. Dejando la parte alta
+           limpia se ve además la app a plena calidad, que es de lo que va. -->
+      <div class="wrap pantalla__grid">
+        <div></div><!-- fila elástica: empuja el texto al fondo -->
+
+        <div class="pantalla__pie">
+          <div class="sec-head" data-reveal>
+            <p class="label"><span class="n">02.</span> El generador</p>
+            <a class="brackets meta" href="/app">Probarlo</a>
+          </div>
+
+          <div class="pantalla__texto">
+            <h2 class="d-lg" data-lines>
+              <span class="line">Tus medidas entran.</span>
+              <span class="line">Un patrón <em>sale.</em></span>
+            </h2>
+            <p class="lede" data-reveal>No es una talla escalada ni una plantilla que se retoca: el trazado se calcula entero, punto por punto, con tus números y con lo que estira tu tela.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         03 · CÓMO FUNCIONA
+         Tres pasos como un índice de revista: numeración enorme a la izquierda
+         y el texto al lado, separados por filo. Nada de iconos genéricos ni
+         capturas de pantalla que todavía no existen.
+         Va sobre tinta para cortar el papel entre el héroe y el lookbook.
+         =================================================================== -->
+    <section class="section on-ink" id="como-funciona">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">03.</span> Cómo funciona</p>
+          <p class="brackets meta">Tres pasos, una tarde</p>
+        </div>
+
+        <div class="steps">
+          <article class="step" data-reveal>
+            <span class="step__n" aria-hidden="true">01</span>
+            <h3>Mides</h3>
+            <p>Mides una vez —busto, cintura, estatura y talle— siguiendo la guía de la prenda. Guardamos tus medidas en tu perfil.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__n" aria-hidden="true">02</span>
+            <h3>Eliges</h3>
+            <p>Elige cada detalle —largo, vuelo, escote, tela— y ve cómo toma forma.</p>
+          </article>
+          <article class="step" data-reveal>
+            <span class="step__n" aria-hidden="true">03</span>
+            <h3>Imprimes y coses</h3>
+            <p>Descarga el patrón en A4, une las hojas con el cuadrado de calibración y sigue las instrucciones mientras coses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         04 · EL PRIMER PATRÓN (KS1)
+         La sección de lookbook: a la izquierda el titular, a la derecha la
+         ficha de lo que se puede cambiar, y debajo un raíl horizontal con las
+         tres fotos reales de la prenda cosida (frente, perfil, espalda).
+         El raíl sale a sangre por la derecha a propósito: la última foto
+         cortada es lo que invita a arrastrar.
+         =================================================================== -->
+    <section class="section" id="ks1">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">04.</span> El primer patrón</p>
+          <a class="brackets meta" href="/app">Abrir en el generador</a>
+        </div>
+
+        <div class="split">
+          <div>
+            <h2 class="d-lg" data-lines>
+              <span class="line">Un vestido sin mangas,</span>
+              <span class="line">con vuelo.</span>
+            </h2>
+            <p class="lede" style="margin-top:1.5rem" data-reveal>Es el primer patrón del generador (ref. KS1) y ya está disponible: prueba todas sus capacidades con un solo diseño.</p>
+          </div>
+
+          <div data-reveal>
+            <p class="label" style="margin-bottom:.9rem">Qué cambias tú</p>
+            <ul class="specs">
+              <li><b>Cómo te queda</b><i aria-hidden="true"></i><span>Cómodo · ajustado · 2ª piel</span></li>
+              <li><b>Escote</b><i aria-hidden="true"></i><span>Delante y detrás</span></li>
+              <li><b>Largo</b><i aria-hidden="true"></i><span>Del mini al midi</span></li>
+              <li><b>Vuelo</b><i aria-hidden="true"></i><span>De recto a muy amplio</span></li>
+              <li><b>Forro</b><i aria-hidden="true"></i><span>Con o sin</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail" data-rail style="margin-top:clamp(2rem,5vw,3.5rem)">
+        <div class="wrap rail__head" data-reveal>
+          <p class="meta">Frente · perfil · espalda</p>
+          <div class="rail__nav">
+            <button class="rail__btn" type="button" data-rail-btn="prev" aria-label="Ver foto anterior">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+            </button>
+            <button class="rail__btn" type="button" data-rail-btn="next" aria-label="Ver foto siguiente">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Scroll nativo con snap: en móvil ya funciona sin JS. `tabindex=0`
+             para poder recorrerlo con el teclado. -->
+        <div class="rail__track" tabindex="0" role="group" aria-label="Fotos de KS1 cosido">
+          <article class="look">
+            <div class="frame">
+              <span class="tape">Primer patrón</span>
+              <picture>
+                <source type="image/webp" srcset="/assets/img/look/look-01-470.webp 470w, /assets/img/look/look-01.webp 940w" sizes="(min-width: 800px) 31rem, 80vw">
+                <img src="/assets/img/look/look-01-470.jpg" srcset="/assets/img/look/look-01-470.jpg 470w, /assets/img/look/look-01.jpg 940w" sizes="(min-width: 800px) 31rem, 80vw" width="940" height="1670" alt="KS1 cosido en tela blanca calada, visto de frente, a la sombra de un parque." loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="look__foot">
+              <span class="look__name">KS1 · Frente</span>
+              <span class="look__price">Gratis</span>
+            </div>
+          </article>
+
+          <article class="look">
+            <div class="frame">
+              <picture>
+                <source type="image/webp" srcset="/assets/img/look/look-03-470.webp 470w, /assets/img/look/look-03.webp 940w" sizes="(min-width: 800px) 31rem, 80vw">
+                <img src="/assets/img/look/look-03-470.jpg" srcset="/assets/img/look/look-03-470.jpg 470w, /assets/img/look/look-03.jpg 940w" sizes="(min-width: 800px) 31rem, 80vw" width="940" height="1670" alt="KS1 de perfil: el talle ajustado y el vuelo de la falda." loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="look__foot">
+              <span class="look__name">KS1 · Perfil</span>
+              <span class="look__price">Gratis</span>
+            </div>
+          </article>
+
+          <article class="look">
+            <div class="frame">
+              <picture>
+                <source type="image/webp" srcset="/assets/img/look/look-02-470.webp 470w, /assets/img/look/look-02.webp 940w" sizes="(min-width: 800px) 31rem, 80vw">
+                <img src="/assets/img/look/look-02-470.jpg" srcset="/assets/img/look/look-02-470.jpg 470w, /assets/img/look/look-02.jpg 940w" sizes="(min-width: 800px) 31rem, 80vw" width="940" height="1670" alt="KS1 visto por la espalda, con el vuelo de la falda." loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <div class="look__foot">
+              <span class="look__name">KS1 · Espalda</span>
+              <span class="look__price">Gratis</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         BANDA DE VÍDEO
+         El segundo vídeo real, a sangre. Aquí no hay botón ni enlace: es
+         respiro y prueba de que la prenda existe y se mueve. `preload=none` +
+         IntersectionObserver: no se descarga hasta que entra en pantalla.
+         =================================================================== -->
+    <section class="band" id="lookbook">
+      <div class="band__media">
+        <video data-io muted loop playsinline preload="none"
+               poster="/assets/img/look/poster-ks1-a.jpg"
+               aria-label="KS1 en movimiento: el vuelo de la falda al caminar.">
+          <source src="/assets/video/ks1-a-web.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="wrap band__grid">
+        <div class="band__title">
+          <h2 class="d-xl" data-lines><span class="line">KS1</span></h2>
+          <p class="paren meta" data-reveal>Vestido · sin mangas · con vuelo</p>
+        </div>
+        <p class="band__say" data-reveal>
+          Un patrón <span class="hl">único</span>. Para una prenda única.
+          <span class="hl">Como tú.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         05 · QUÉ TE LLEVAS
+         Tres archivos concretos, en tres celdas separadas por un filo de 1 px.
+         Sin foto: aquí manda la etiqueta de formato en mono. Al pasar el ratón
+         la celda se invierte a tinta, que es el único movimiento que hay.
+         =================================================================== -->
+    <section class="section" id="descargas">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">05.</span> Qué te llevas</p>
+          <p class="brackets meta">3 archivos</p>
+        </div>
+
+        <div class="split" style="margin-bottom:clamp(2rem,4vw,3rem)">
+          <h2 class="d-lg" data-lines>
+            <span class="line">Tres archivos,</span>
+            <span class="line">listos para cortar.</span>
+          </h2>
+          <p class="lede" data-reveal>Generados al momento con tus medidas y tu tela. No son plantillas reutilizables: se crean exclusivamente para ti.</p>
+        </div>
+
+        <div class="files">
+          <article class="file" data-reveal>
+            <div class="file__art" aria-hidden="true" data-trace>
+              <svg class="tech-draw" viewBox="0 0 320 240" role="img" aria-label="El patrón repartido en nueve hojas A4 numeradas, con la pieza cruzando de una a otra.">
+                <g class="sheet-grid">
+                  <path class="sheet" d="M22 21h88v62H22Zm96 0h88v62h-88Zm96 0h88v62h-88ZM22 89h88v62H22Zm96 0h88v62h-88Zm96 0h88v62h-88ZM22 157h88v62H22Zm96 0h88v62h-88Zm96 0h88v62h-88Z"/>
+                  <path class="aux"   d="M22 21h88v62H22Zm96 0h88v62h-88Zm96 0h88v62h-88ZM22 89h88v62H22Zm96 0h88v62h-88Zm96 0h88v62h-88ZM22 157h88v62H22Zm96 0h88v62h-88Zm96 0h88v62h-88Z"/>
+                </g>
+                <text x="26" y="32">1</text><text x="122" y="32">2</text><text x="218" y="32">3</text>
+                <text x="26" y="100">4</text><text x="122" y="100">5</text><text x="218" y="100">6</text>
+                <text x="26" y="168">7</text><text x="122" y="168">8</text><text x="218" y="168">9</text>
+                <path class="cut" d="M74 190V86c0-14 8-24 26-28l36 8c-4 24 4 44 16 62l4 62Z"/>
+                <path class="sa"  d="M80 184V89c0-11 7-19 22-23l30 7c-3 20 4 38 14 55l4 56Z"/>
+                <path class="thread" d="M110 100v74"/>
+              </svg>
+            </div>
+            <p class="meta">Patrón · PDF A4</p>
+            <h3>El patrón en hojas A4</h3>
+            <p>Hojas numeradas para imprimir en casa, recortar y unir. Con margen de costura, piquetes y cuadro de calibración.</p>
+          </article>
+          <article class="file" data-reveal>
+            <div class="file__art" aria-hidden="true" data-trace>
+              <svg class="tech-draw" viewBox="0 0 320 240" role="img" aria-label="Cuaderno de instrucciones de costura: pasos numerados con su diagrama.">
+                <path class="sheet" d="M84 16h152v208H84Z"/>
+                <path class="aux"   d="M84 16h152v208H84Z"/>
+                <path class="solid" d="M100 34h44v5h-44Z"/>
+                <path class="aux" d="M100 50h120"/>
+                <circle class="cut" cx="107" cy="70" r="7"/>
+                <path class="aux" d="M124 66h96M124 76h64"/>
+                <circle class="thread" cx="107" cy="106" r="7"/>
+                <path class="aux" d="M124 102h96M124 112h78"/>
+                <circle class="cut" cx="107" cy="142" r="7"/>
+                <path class="aux" d="M124 138h84M124 148h96"/>
+                <circle class="cut" cx="107" cy="178" r="7"/>
+                <path class="aux" d="M124 174h96M124 184h52"/>
+                <path class="aux aux--dot" d="M100 200h120"/>
+                <text x="100" y="216">TUS MEDIDAS · MATERIALES</text>
+              </svg>
+            </div>
+            <p class="meta">Instrucciones · PDF</p>
+            <h3>Las instrucciones de costura</h3>
+            <p>El paso a paso de tu prenda, en orden. Con tus medidas y la lista de materiales que vas a necesitar.</p>
+          </article>
+          <article class="file" data-reveal>
+            <div class="file__art" aria-hidden="true" data-trace>
+              <svg class="tech-draw" viewBox="0 0 320 240" role="img" aria-label="Contorno del patrón en formato DXF, con sus nodos y su caja de coordenadas.">
+                <path class="aux aux--dot" d="M96 50h98v148H96Z"/>
+                <path class="aux" d="M96 44v-8M145 44v-8M194 44v-8M90 50h-8M90 124h-8M90 198h-8"/>
+                <path class="cut" d="M104 190V86c0-14 8-24 26-28l36 8c-4 24 4 44 16 62l4 62Z"/>
+                <g class="solid">
+                  <path d="M101 187h6v6h-6Zm0-104h6v6h-6Zm26-28h6v6h-6Zm36 8h6v6h-6Zm16 62h6v6h-6Zm4 62h6v6h-6Z"/>
+                </g>
+                <path class="thread" d="M140 104v72"/>
+                <text x="74" y="226">CONTORNO VECTORIAL · SIN RASTERIZAR</text>
+              </svg>
+            </div>
+            <p class="meta">Corte · DXF</p>
+            <h3>El archivo DXF</h3>
+            <p>Si cortas con plóter o mesa de corte, lo tienes listo. Si no, ni lo miras.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         06 · EN CAMINO
+         El raíl de «categorías»: cuatro prendas con el nombre girado 90° al
+         filo izquierdo y el contador entre corchetes. Como todavía no hay foto
+         de ninguna, el hueco es un marcador con rejilla milimétrica —se ve
+         deliberado, no roto— y el contador va a [ 0 ].
+         Debajo, la votación: marca las que quieras + tu correo. Es el objetivo
+         secundario de la página (capturar el email de quien aún no se registra).
+         =================================================================== -->
+    <section class="section" id="en-camino">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">06.</span> En camino</p>
+          <p class="brackets meta">4 prendas</p>
+        </div>
+
+        <div class="split">
+          <h2 class="d-lg" data-lines>
+            <span class="line">Después llegan</span>
+            <span class="line">los básicos.</span>
+          </h2>
+          <p class="lede" data-reveal>Blusa, short, pantalón y falda: los patrones que más se repiten en casa, con la misma personalización. Dinos cuál quieres primero y te avisamos.</p>
+        </div>
+      </div>
+
+      <div class="rail" data-rail style="margin-top:clamp(2rem,5vw,3.5rem)">
+        <div class="wrap rail__head" data-reveal>
+          <p class="meta">Desliza para ver las cuatro</p>
+          <div class="rail__nav">
+            <button class="rail__btn" type="button" data-rail-btn="prev" aria-label="Ver prendas anteriores">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+            </button>
+            <button class="rail__btn" type="button" data-rail-btn="next" aria-label="Ver prendas siguientes">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="rail__track" tabindex="0" role="group" aria-label="Prendas básicas en camino">
+          <article class="cat">
+            <div class="cat__art" aria-hidden="true">
+              <svg class="tech-draw" viewBox="0 0 200 260" role="img" aria-label="Silueta técnica de la blusa.">
+                <path class="cut" d="M70 60 60 66 40 110l15 10 13-24v144h64V96l13 24 15-10-20-44-10-6c-10 14-50 14-60 0Z"/>
+                <path class="aux aux--dot" d="M100 66v144"/><path class="aux" d="M68 180h64"/>
+              </svg>
+            </div>
+            <div class="cat__head">
+              <p class="meta">Próximamente</p>
+              <p class="cat__desc">Con y sin mangas, varios escotes</p>
+            </div>
+            <span class="cat__name" aria-hidden="true">Blusa</span>
+            <span class="cat__count" aria-hidden="true">KS2</span>
+            <p class="visually-hidden">Blusa (ref. KS2): con y sin mangas, varios escotes. Próximamente.</p>
+          </article>
+          <article class="cat">
+            <div class="cat__art" aria-hidden="true">
+              <svg class="tech-draw" viewBox="0 0 200 260" role="img" aria-label="Silueta técnica del short.">
+                <path class="cut" d="M62 70h76l6 74h-38l-6-24-6 24H56Z"/>
+                <path class="aux" d="M62 84h76"/><path class="aux aux--dot" d="M100 84v34"/>
+              </svg>
+            </div>
+            <div class="cat__head">
+              <p class="meta">Próximamente</p>
+              <p class="cat__desc">Tiro a tu gusto, con bolsillos</p>
+            </div>
+            <span class="cat__name" aria-hidden="true">Short</span>
+            <span class="cat__count" aria-hidden="true">KS3</span>
+            <p class="visually-hidden">Short (ref. KS3): tiro a tu gusto, con bolsillos. Próximamente.</p>
+          </article>
+          <article class="cat">
+            <div class="cat__art" aria-hidden="true">
+              <svg class="tech-draw" viewBox="0 0 200 260" role="img" aria-label="Silueta técnica del pantalón.">
+                <path class="cut" d="M62 60h76l8 168h-38l-8-104-8 104H54Z"/>
+                <path class="aux" d="M62 74h76"/><path class="aux aux--dot" d="M100 74v46"/>
+              </svg>
+            </div>
+            <div class="cat__head">
+              <p class="meta">Próximamente</p>
+              <p class="cat__desc">Recto o ajustado, largo libre</p>
+            </div>
+            <span class="cat__name" aria-hidden="true">Pantalón</span>
+            <span class="cat__count" aria-hidden="true">KS4</span>
+            <p class="visually-hidden">Pantalón (ref. KS4): recto o ajustado, largo libre. Próximamente.</p>
+          </article>
+          <article class="cat">
+            <div class="cat__art" aria-hidden="true">
+              <svg class="tech-draw" viewBox="0 0 200 260" role="img" aria-label="Silueta técnica de la falda.">
+                <path class="cut" d="M68 60h64l22 156H46Z"/>
+                <path class="aux" d="M67 74h66"/><path class="aux aux--dot" d="M100 74v142"/>
+              </svg>
+            </div>
+            <div class="cat__head">
+              <p class="meta">Próximamente</p>
+              <p class="cat__desc">De recta a con mucho vuelo</p>
+            </div>
+            <span class="cat__name" aria-hidden="true">Falda</span>
+            <span class="cat__count" aria-hidden="true">KS5</span>
+            <p class="visually-hidden">Falda (ref. KS5): de recta a con mucho vuelo. Próximamente.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <!-- Se envía a Supabase con prenda = "voto:…" desde kokin.js. Sin JS el
+             formulario no rompe nada: `novalidate` sólo apaga los globos del
+             navegador, la validación real la hace kokin.js. -->
+        <form class="vote" data-reveal novalidate>
+          <fieldset>
+            <legend>¿Cuál quieres primero? Marca los que más te interesen</legend>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="prenda" value="todos" data-check-all><span>Todos</span></label>
+              <label class="check"><input type="checkbox" name="prenda" value="blusa"><span>Blusa</span></label>
+              <label class="check"><input type="checkbox" name="prenda" value="short"><span>Short</span></label>
+              <label class="check"><input type="checkbox" name="prenda" value="pantalon"><span>Pantalón</span></label>
+              <label class="check"><input type="checkbox" name="prenda" value="falda"><span>Falda</span></label>
+            </div>
+          </fieldset>
+          <div class="vote__actions">
+            <label class="visually-hidden" for="vote-email">Tu correo</label>
+            <input id="vote-email" type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+            <button class="btn btn--primary btn--sm" type="submit">Avísame</button>
+          </div>
+          <p class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         07 · LA PARTE TÉCNICA
+         Plegable y discreta: no estorba a quien no la quiere y convence a la
+         costurera experta —la que recomienda— que sí. <details> nativo, sin JS.
+         Aquí es donde se justifica por qué esto no es escalar una talla.
+         =================================================================== -->
+    <section class="section on-ink" id="tecnica">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">07.</span> La parte técnica</p>
+          <p class="brackets meta">Para quien quiera el porqué</p>
+        </div>
+
+        <div class="split" style="margin-bottom:clamp(1.5rem,3vw,2.5rem)">
+          <h2 class="d-lg" data-lines>
+            <span class="line">Por qué esto no es</span>
+            <span class="line"><em>escalar una talla.</em></span>
+          </h2>
+          <p class="lede" data-reveal>Si coses desde hace años, esto te importa. Si no, puedes saltártelo: el patrón sale igual de bien.</p>
+        </div>
+
+        <div class="accordion" data-reveal>
+          <details>
+            <summary>La holgura negativa sale de tu tela, no de una tabla</summary>
+            <p>La licra no estira igual de una tela a otra. Antes de trazar, haces un test de elasticidad con un trozo de tu tela concreta, y la holgura negativa se calcula con ese dato. La prenda abraza sin apretar, porque está pensada para cómo estira tu licra, no para una media.</p>
+            <p>Tú solo eliges cómo quieres que te quede —cómodo, ajustado o segunda piel— y el cálculo se ajusta a esa decisión y a tu tela. No hay que saber cuántos centímetros restar: eso lo pone el generador.</p>
+          </details>
+          <details>
+            <summary>La banda del escote parte del perímetro real</summary>
+            <p>El ribete del escote se dimensiona a partir del perímetro real de tu escote y de la elasticidad medida. Así queda plano, no se abre ni tira, y no hay que ir probando a ojo cuánto recortar.</p>
+          </details>
+          <details>
+            <summary>El talle se puede medir o estimar</summary>
+            <p>Puedes medir tu talle delantero y de espalda, o dejar que se estime desde la estatura y la proporción. Tú decides cuánto controlas: más medidas, más ajuste; menos medidas, más rápido.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         08 · PREGUNTAS FRECUENTES
+         <details> otra vez, sin JS. Preguntas cortas, respuestas concretas.
+         Duplicadas en el JSON-LD de FAQ del <head> para los rich results.
+         =================================================================== -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">08.</span> Preguntas frecuentes</p>
+          <p class="brackets meta">Lo que suelen preguntar</p>
+        </div>
+
+        <div class="accordion" data-reveal style="margin-top:clamp(1.5rem,3vw,2.5rem)">
+          <details>
+            <summary>¿Necesito una impresora especial?</summary>
+            <p>No. Cualquier impresora A4 de casa. El patrón viene paginado para hojas A4 normales.</p>
+          </details>
+          <details>
+            <summary>¿Cómo sé que sale a escala?</summary>
+            <p>Cada patrón trae un cuadrado de calibración. Lo mides con una regla antes de recortar: si mide lo que dice, has impreso al 100 %.</p>
+          </details>
+          <details>
+            <summary>¿El patrón incluye los márgenes de costura?</summary>
+            <p>Sí. Vienen incluidos y marcados, y sabes cuánto mide cada uno. Si prefieres trazar sin ellos —para cortar al filo o porque los añades tú—, puedes desactivarlos antes de descargar.</p>
+          </details>
+          <details>
+            <summary>¿Qué tallas cubre?</summary>
+            <p>No hay tallas. Van tus medidas, sean las que sean.</p>
+          </details>
+          <details>
+            <summary>¿Sirve para coser para otras personas?</summary>
+            <p>Sí. Guardas un perfil de medidas por persona y trazas para cualquiera de ellas.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         09 · CIERRE
+         El mismo botón del héroe, ahora sobre tinta y a tamaño de portada. Un
+         único objetivo; se repite qué incluye en mono, como el pie de una
+         ficha técnica.
+         =================================================================== -->
+    <section class="section on-ink" id="empezar">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="label"><span class="n">09.</span> Empieza</p>
+          <p class="brackets meta">Gratis</p>
+        </div>
+
+        <div class="closing" style="margin-top:clamp(2rem,5vw,3.5rem)">
+          <h2 class="d-xl" data-lines>
+            <span class="line">Crea tu primer</span>
+            <span class="line">patrón <em>hoy.</em></span>
+          </h2>
+          <p class="lede" data-reveal>Sólo necesitas una cuenta y tus medidas.</p>
+          <a class="btn btn--primary" href="/app" data-reveal>Crear mi patrón — gratis
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+          <p class="meta" data-reveal>Patrón en A4 · Instrucciones de costura · Sin tallas: tus medidas</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       PIE — columnas, legales y selector de idioma como enlaces (sin JS), y
+       el logotipo a sangre abajo del todo, recortado, como una firma
+       estampada. Va en tinta, igual que el cierre, para que la página acabe
+       en oscuro.
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cols">
+        <div>
+          <a class="brand" href="/es/" aria-label="Kokïn — inicio">
+            <svg viewBox="0 0 184 52" role="img" aria-label="Kokïn"><use href="#kokin-mark"/></svg>
+          </a>
+          <p class="tagline">Generador de patrones de costura a tu medida, para telas que estiran. Listos para imprimir en A4 o DXF, con instrucciones de costura.</p>
+        </div>
+        <div>
+          <h4>Producto</h4>
+          <ul>
+            <li><a href="#generador">El generador</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#ks1">El primer patrón: KS1</a></li>
+            <li><a href="#descargas">Qué te llevas</a></li>
+            <li><a href="#en-camino">Los básicos</a></li>
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+            <li><a href="/app">Entrar a la app</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/es/aviso-legal/">Aviso legal</a></li>
+            <li><a href="/es/privacidad/">Privacidad</a></li>
+            <li><a href="/es/terminos/">Términos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <span>© 2026 Kokïn</span>
+        <nav aria-label="Idioma">
+          <ul class="lang-inline">
+            <li><a href="/es/" hreflang="es" aria-current="true">ES</a></li>
+            <li><a href="/en/" hreflang="en">EN</a></li>
+            <li><a href="/de/" hreflang="de">DE</a></li>
+            <li><a href="/nl/" hreflang="nl">NL</a></li>
+            <li><a href="/fr/" hreflang="fr">FR</a></li>
+          </ul>
+        </nav>
+        <span>Analítica propia y anónima · Sin cookies de terceros</span>
+      </div>
+    </div>
+
+    <div class="footer-mark" aria-hidden="true">
+      <svg viewBox="0 3 184 46"><use href="#kokin-mark"/></svg>
+    </div>
+  </footer>
+</body>
+</html>

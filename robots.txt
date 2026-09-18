@@ -1,0 +1,10 @@
+# robots.txt — Kokin
+# La landing es indexable en sus cinco idiomas. La aplicacion (/app) no: es
+# otro documento, con noindex, y no aporta nada al buscador.
+
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /app
+
+Sitemap: https://kokin.app/sitemap.xml

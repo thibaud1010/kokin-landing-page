@@ -1,0 +1,11 @@
+{
+  "name": "kokin-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Web publica de Kokin: HTML y CSS estaticos, sin build ni dependencias.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs .",
+    "start": "node scripts/serve.mjs ."
+  }
+}

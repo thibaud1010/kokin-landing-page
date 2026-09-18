@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- ============================================================================
+     RAIZ "/" — Selector/redirector de idioma.
+     No es una página de contenido: las cinco versiones reales viven en /es/,
+     /en/, /de/, /nl/, /fr/ y son las que se indexan (x-default = /es/). Por eso
+     esta raíz va con noindex, para no competir con ellas por el mismo contenido.
+     Sin JS muestra la lista de idiomas (funciona igual); con JS salta al idioma
+     del navegador si es uno de los cinco, y si no, al español.
+     ========================================================================= -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>Kokin — Elige tu idioma</title>
+  <meta name="theme-color" content="#f3eee4">
+  <link rel="alternate" hreflang="es" href="https://kokin.app/es/">
+  <link rel="alternate" hreflang="en" href="https://kokin.app/en/">
+  <link rel="alternate" hreflang="de" href="https://kokin.app/de/">
+  <link rel="alternate" hreflang="nl" href="https://kokin.app/nl/">
+  <link rel="alternate" hreflang="fr" href="https://kokin.app/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://kokin.app/es/">
+  <link rel="stylesheet" href="/assets/css/kokin.css">
+  <script>
+    // Redirección por idioma del navegador. Solo entre los cinco soportados;
+    // cualquier otro cae al español. Cookieless, sin rastreo.
+    (function () {
+      var soportados = ["es", "en", "de", "nl", "fr"];
+      var pref = (navigator.language || "es").slice(0, 2).toLowerCase();
+      var destino = soportados.indexOf(pref) !== -1 ? pref : "es";
+      location.replace("/" + destino + "/");
+    })();
+  </script>
+</head>
+<body>
+  <main id="contenido" class="wrap" style="min-height:70vh; display:grid; align-content:center; gap:1.5rem; padding-block:var(--section-y)">
+    <a class="brand" href="/es/" style="font-size:1.8rem"><b>Kokin</b></a>
+    <h1 style="font-size:var(--step-2)">Elige tu idioma</h1>
+    <!-- Fallback sin JS: lista de idiomas como enlaces reales -->
+    <nav aria-label="Idioma">
+      <ul class="lang-inline" style="font-size:var(--step-0); gap:.6rem 1.4rem">
+        <li><a href="/es/" hreflang="es">Español</a></li>
+        <li><a href="/en/" hreflang="en">English</a></li>
+        <li><a href="/de/" hreflang="de">Deutsch</a></li>
+        <li><a href="/nl/" hreflang="nl">Nederlands</a></li>
+        <li><a href="/fr/" hreflang="fr">Français</a></li>
+      </ul>
+    </nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+FUENTES AUTOALOJADAS — KOKIN
+============================================================
+
+La landing usa una pareja tipográfica deliberada y NO carga nada de una CDN
+en tiempo de ejecución (requisito del proyecto: cero dependencias externas,
+sin banner de cookies, LCP < 2 s en 4G). Por eso las fuentes se autoalojan.
+
+Hasta que dejes los .woff2 en esta carpeta, la página se ve correctamente con
+los fallbacks del sistema definidos en assets/css/kokin.css (Georgia para el
+display, system-ui para el cuerpo). No hay nada roto; sólo falta el carácter.
+
+Coloca aquí estos archivos (formato woff2, subconjunto latino + latin-ext):
+
+  Display  — Fraunces
+    fraunces-400.woff2         (regular)
+    fraunces-400-italic.woff2  (itálica, para los acentos en bronce)
+    fraunces-600.woff2         (semibold, para la marca)
+
+  Cuerpo   — IBM Plex Sans
+    plex-sans-400.woff2
+    plex-sans-500.woff2
+    plex-sans-600.woff2
+
+  Mono     — IBM Plex Mono  (anotaciones de medida y etiquetas de ficha)
+    plex-mono-400.woff2
+
+Dónde conseguirlas (licencia OFL, uso libre, autoalojable):
+  - Fraunces:       https://github.com/undercasetype/Fraunces
+  - IBM Plex:       https://github.com/IBM/plex   (o https://www.ibm.com/plex/)
+  Recomendado: pasar por un subsetter (glyphhanger / fonttools) para dejar
+  sólo los caracteres de los cinco idiomas (es, en, de, nl, fr) y bajar peso.
+
+Las @font-face ya están declaradas al principio de kokin.css con
+font-display: swap y los nombres de archivo de arriba. Sólo hay que soltar
+los woff2 aquí y desplegar.

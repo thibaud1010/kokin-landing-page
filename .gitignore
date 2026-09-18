@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Ajustes locales de Claude Code
+.claude/settings.local.json
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Videos de portada sin usar (45 MB, no referenciados por el sitio)
+assets/img/portada/generation.mp4
+assets/img/portada/generation (1).mp4
